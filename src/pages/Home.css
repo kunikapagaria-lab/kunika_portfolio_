@@ -1,0 +1,436 @@
+/* ---------- Hero: notebook page on a parallax stage ---------- */
+
+.notebook-stage {
+  position: relative;
+  overflow: hidden;
+  padding: 70px clamp(20px, 6vw, 90px) 90px;
+  background: var(--cork-dark);
+  --hole-color: var(--cork-dark);
+}
+
+.stage-backdrop {
+  background: radial-gradient(circle, rgba(70, 40, 10, 0.22) 1px, transparent 1.6px) 0 0/16px 16px,
+    radial-gradient(circle, rgba(255, 230, 190, 0.12) 1px, transparent 1.6px) 8px 8px/16px 16px,
+    linear-gradient(155deg, var(--cork) 0%, var(--cork-dark) 100%);
+}
+
+.notebook-page {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  max-width: 640px;
+  background: var(--paper-cream);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 47px,
+    rgba(20, 45, 60, 0.1) 48px
+  );
+  border-radius: 3px;
+  padding: 56px 46px 50px 68px;
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.5));
+  transform: rotate(-1.2deg);
+}
+
+.page-tag {
+  position: absolute;
+  top: -18px;
+  left: 40px;
+  z-index: 5;
+}
+
+.page-stamp {
+  position: absolute;
+  top: 40px;
+  right: 34px;
+  z-index: 3;
+}
+
+.photo-stack {
+  position: relative;
+  float: right;
+  width: 150px;
+  height: 190px;
+  margin: 90px -10px 20px 20px;
+}
+
+.stack-photo {
+  position: absolute;
+  width: 130px;
+}
+
+.stack-photo-b {
+  top: 6px;
+  right: 0;
+  z-index: 1;
+}
+
+.stack-photo-a {
+  top: -10px;
+  right: 16px;
+  z-index: 2;
+}
+
+.stack-clip {
+  position: absolute;
+  top: -30px;
+  right: 34px;
+  z-index: 3;
+  transform: rotate(8deg);
+}
+
+.notebook-title {
+  margin: 4px 0 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-script {
+  font-family: var(--font-script);
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: var(--blue-ink);
+}
+
+.title-serif {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(3rem, 7vw, 4.6rem);
+  color: var(--ink);
+  line-height: 1;
+}
+
+.hero-tagline {
+  color: var(--ink-soft);
+  max-width: 40ch;
+  clear: both;
+  margin: 0 0 26px;
+}
+
+.hero-actions-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-arrow-note {
+  top: -8px;
+  left: calc(100% + 6px);
+}
+
+.spine-label {
+  position: absolute;
+  right: 16px;
+  bottom: 40px;
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  writing-mode: vertical-rl;
+  opacity: 0.7;
+}
+
+/* ---------- About (full-bleed split panel) ---------- */
+
+.about-split {
+  margin-top: 110px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 640px;
+}
+
+.about-left,
+.about-right {
+  display: flex;
+  align-items: center;
+  padding: 60px clamp(24px, 6vw, 90px);
+}
+
+.about-left {
+  justify-content: center;
+  background-color: var(--paper-white);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 47px,
+    rgba(20, 45, 60, 0.1) 48px
+  );
+}
+
+.about-right {
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--blue);
+  position: relative;
+}
+
+.about-photo-frame {
+  position: relative;
+  background: #fff;
+  padding: 26px 26px 34px;
+  width: min(420px, 100%);
+  filter: drop-shadow(0 18px 24px rgba(20, 35, 45, 0.3));
+}
+
+.about-hello {
+  font-size: 1.9rem;
+  margin: 0 0 14px;
+}
+
+.about-photo-box {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.about-photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-name {
+  font-size: 2.4rem;
+  line-height: 1.05;
+  margin: 18px 0 0;
+}
+
+.about-title {
+  font-size: 3rem;
+  margin: 0 0 22px;
+}
+
+.about-bio {
+  color: var(--ink);
+  font-size: 1.1rem;
+  line-height: 1.75;
+  margin: 0;
+  max-width: 48ch;
+}
+
+.about-secondary {
+  align-self: flex-end;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  margin-top: auto;
+  padding-top: 60px;
+}
+
+.about-secondary-photo {
+  position: relative;
+  width: 190px;
+  transform: rotate(4deg);
+  filter: drop-shadow(0 12px 16px rgba(20, 35, 45, 0.3));
+}
+
+.about-secondary-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+}
+
+.about-quote {
+  font-size: 1.3rem;
+  max-width: 18ch;
+  line-height: 1.3;
+  margin: 0 0 10px;
+}
+
+/* ---------- Experience ---------- */
+
+.experience-section {
+  margin: 130px auto 0;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.experience-grid .torn-wrap:nth-child(odd) {
+  transform: translateY(-18px) rotate(-1.2deg);
+}
+
+.experience-grid .torn-wrap:nth-child(even) {
+  transform: translateY(22px) rotate(1.2deg);
+}
+
+.exp-card {
+  padding-bottom: 130px;
+}
+
+.exp-heading {
+  font-size: 1.7rem;
+  margin: 0 0 16px;
+}
+
+.exp-detail {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 32ch;
+}
+
+.exp-photos {
+  position: relative;
+  height: 150px;
+  margin-top: 10px;
+}
+
+.exp-photo-a,
+.exp-photo-b {
+  position: absolute;
+  width: 130px;
+}
+
+.exp-photo-a {
+  left: 0;
+  top: 20px;
+  z-index: 1;
+}
+
+.exp-photo-b {
+  left: 90px;
+  top: -10px;
+  z-index: 2;
+}
+
+/* ---------- Education ---------- */
+
+.education-section {
+  margin: 90px auto 110px;
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 50px;
+}
+
+.edu-card {
+  text-align: center;
+}
+
+.edu-photo {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 8px 10px rgba(20, 35, 45, 0.25));
+}
+
+.edu-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.edu-school {
+  font-size: 1.7rem;
+  margin: 0 0 4px;
+}
+
+.edu-period {
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+
+.edu-detail {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .notebook-stage {
+    padding: 50px 16px 60px;
+  }
+
+  .notebook-page {
+    padding: 48px 26px 40px 52px;
+    transform: rotate(0deg);
+  }
+
+  .page-stamp {
+    top: auto;
+    bottom: -16px;
+    right: 20px;
+  }
+
+  .photo-stack {
+    float: none;
+    margin: 30px auto 20px;
+  }
+
+  .spine-label {
+    display: none;
+  }
+
+  .hero-arrow-note {
+    display: none;
+  }
+
+  .about-split {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .about-right {
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-secondary {
+    align-self: center;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .about-quote {
+    transform: none;
+    text-align: center;
+  }
+
+  .experience-grid,
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-grid .torn-wrap:nth-child(odd),
+  .experience-grid .torn-wrap:nth-child(even) {
+    transform: none;
+  }
+
+  .exp-card {
+    padding-bottom: 40px;
+  }
+
+  .exp-photos {
+    position: static;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .exp-photo-a,
+  .exp-photo-b {
+    position: static;
+  }
+}
