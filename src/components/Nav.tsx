@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePortfolioData } from "../context/PortfolioDataContext";
 import SayHiModal from "./SayHiModal";
 
@@ -13,6 +13,21 @@ const LINKS = [
 export default function Nav() {
   const { site } = usePortfolioData();
   const [active, setActive] = useState("home");
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+
+    const setNavHeight = () => {
+      document.documentElement.style.setProperty("--nav-h", `${header.offsetHeight}px`);
+    };
+
+    setNavHeight();
+    const observer = new ResizeObserver(setNavHeight);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
