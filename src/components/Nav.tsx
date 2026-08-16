@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { usePortfolioData } from "../context/PortfolioDataContext";
 import SayHiModal from "./SayHiModal";
@@ -16,21 +16,6 @@ export default function Nav() {
   const { pathname } = useLocation();
   const onHome = pathname === "/";
   const [active, setActive] = useState("home");
-  const headerRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const header = headerRef.current;
-    if (!header) return;
-
-    const setNavHeight = () => {
-      document.documentElement.style.setProperty("--nav-h", `${header.offsetHeight}px`);
-    };
-
-    setNavHeight();
-    const observer = new ResizeObserver(setNavHeight);
-    observer.observe(header);
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -49,7 +34,7 @@ export default function Nav() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-bg border-b-2 border-stroke">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-bg border-b-2 border-stroke">
       <div className="max-w-[1100px] mx-auto px-6 md:px-10 py-5 flex flex-wrap items-center justify-between gap-y-3">
         <a href={onHome ? "#home" : "/#home"} className="font-display text-3xl tracking-wide">
           {site.name}

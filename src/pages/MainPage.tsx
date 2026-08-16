@@ -14,7 +14,7 @@ export default function MainPage() {
       <Nav />
       <BackToTop />
       <SceneSlate />
-      <section id="home" className="min-h-[calc(100vh-var(--nav-h))] flex flex-col justify-center">
+      <section id="home" className="min-h-screen flex flex-col justify-center pt-20">
         <Home />
       </section>
       <section id="work" className="min-h-screen flex flex-col justify-center">

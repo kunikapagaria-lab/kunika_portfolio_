@@ -21,7 +21,7 @@ export default function ProjectDetail() {
     return (
       <>
         <Nav />
-        <div className="max-w-[1100px] mx-auto px-6 md:px-10 py-16 md:py-24">
+        <div className="max-w-[1100px] mx-auto px-6 md:px-10 pt-28 pb-16 md:pt-36 md:pb-24">
           <button onClick={goBack} className="panel-label mb-8 inline-block">
             ← back
           </button>
@@ -38,7 +38,7 @@ export default function ProjectDetail() {
   return (
     <>
       <Nav />
-      <div className="max-w-[1100px] mx-auto px-6 md:px-10 py-16 md:py-24">
+      <div className="max-w-[1100px] mx-auto px-6 md:px-10 pt-28 pb-16 md:pt-36 md:pb-24">
         <button onClick={goBack} className="panel-label mb-8 inline-block">
           ← back
         </button>
