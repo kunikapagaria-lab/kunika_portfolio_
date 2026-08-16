@@ -94,7 +94,7 @@ export default function ScrollPath() {
   };
 
   return (
-    <div className="hidden md:block fixed right-2 top-0 h-screen w-24 z-40 pointer-events-none">
+    <div className="hidden md:block fixed right-10 top-0 h-screen w-24 z-40 pointer-events-none">
       <svg viewBox="0 0 100 720" preserveAspectRatio="none" className="w-full h-full" fill="none">
         <path d={PATH_D} stroke="hsl(var(--stroke))" strokeWidth="2" strokeDasharray="4 6" strokeLinecap="round" fill="none" />
         <path
