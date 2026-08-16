@@ -18,20 +18,20 @@ export default function App() {
         <ScrollPath />
         <BackToTop />
         <SceneSlate />
-        <section id="home">
+        <section id="home" className="min-h-screen flex flex-col justify-center">
           <Home />
         </section>
-        <section id="work">
+        <section id="work" className="min-h-screen flex flex-col justify-center">
           <Reveal>
             <Work />
           </Reveal>
         </section>
-        <section id="about">
+        <section id="about" className="min-h-screen flex flex-col justify-center">
           <Reveal>
             <About />
           </Reveal>
         </section>
-        <section id="contact">
+        <section id="contact" className="min-h-screen flex flex-col justify-center">
           <Reveal>
             <Contact />
           </Reveal>

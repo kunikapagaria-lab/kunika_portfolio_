@@ -10,9 +10,10 @@ export default function Home() {
       <div>
         <span className="panel-label mb-6">01 — Home</span>
         <h1 className="font-display text-5xl md:text-6xl leading-tight mt-6 mb-4">i'm {firstName}--</h1>
-        <p className="text-sm md:text-base leading-relaxed mb-6 max-w-md">
+        <p className="text-sm md:text-base leading-relaxed mb-4 max-w-md">
           a {site.roles.join(" and ").toLowerCase()}. {site.tagline}
         </p>
+        <p className="text-sm md:text-base text-muted leading-relaxed mb-6 max-w-md">{site.shortBio}</p>
         <div className="flex flex-wrap gap-4">
           <a href="#work" className="tag-bar bg-accent">
             see my work →

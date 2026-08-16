@@ -5,4 +5,5 @@ export default defineCliConfig({
     projectId: "ucw7oipb",
     dataset: "production",
   },
+  studioHost: "kunika-portfolio-pixel",
 });

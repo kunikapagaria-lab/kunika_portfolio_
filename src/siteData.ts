@@ -3,6 +3,8 @@ export const site = {
   initials: "KP",
   roles: ["Product Designer", "AI-Assisted Developer"],
   tagline: "To write is to carve a constellation onto paper. To code is to make it shine.",
+  shortBio:
+    "Kolkata-based, fresh out of engineering school, and currently freelancing on AI-assisted product work — I like building things end-to-end, from the first sketch to the deployed link.",
   bio: "Engineering graduate with a strong interest in product development, project management, and technology-driven problem solving. Skilled at turning ideas into practical, user-focused products through fast execution and modern development tools. Comfortable working across both technical and creative workflows, with a focus on building functional, deployment-ready applications. Known for adaptability, quick learning, problem-solving, and working effectively in fast-paced environments.",
   quote: "The journey is the destination.",
   quoteAuthor: "Ralph Waldo Emerson",
