@@ -19,6 +19,7 @@ export default defineType({
       },
     }),
     defineField({ name: "year", title: "Year", type: "string" }),
+    defineField({ name: "description", title: "Description", type: "text", rows: 3 }),
     defineField({ name: "coverImage", title: "Cover Image", type: "image", options: { hotspot: true } }),
     defineField({ name: "techStack", title: "Tech Stack", type: "array", of: [{ type: "string" }] }),
     defineField({ name: "problemStatement", title: "Problem Statement", type: "text", rows: 3 }),

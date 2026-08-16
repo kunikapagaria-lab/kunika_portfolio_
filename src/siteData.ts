@@ -43,6 +43,7 @@ export interface Project {
   title: string;
   category: "personal" | "client";
   year: string;
+  description: string;
   imageUrl: string;
   techStack: string[];
   problemStatement: string;
@@ -57,6 +58,7 @@ export const projects: Project[] = [
     title: "Automotive Motion",
     category: "personal",
     year: "2024",
+    description: "",
     imageUrl: "https://picsum.photos/seed/automotive/700/525",
     techStack: [],
     problemStatement: "",
@@ -68,6 +70,7 @@ export const projects: Project[] = [
     title: "Human Perspective",
     category: "personal",
     year: "2023",
+    description: "",
     imageUrl: "https://picsum.photos/seed/portrait/700/525",
     techStack: [],
     problemStatement: "",
@@ -79,6 +82,7 @@ export const projects: Project[] = [
     title: "Urban Architecture",
     category: "client",
     year: "2024",
+    description: "",
     imageUrl: "https://picsum.photos/seed/architecture/700/525",
     techStack: [],
     problemStatement: "",
@@ -90,6 +94,7 @@ export const projects: Project[] = [
     title: "Brand Identity",
     category: "client",
     year: "2023",
+    description: "",
     imageUrl: "https://picsum.photos/seed/brand/700/525",
     techStack: [],
     problemStatement: "",

@@ -26,6 +26,8 @@ function ProjectCard({ project, shot }: { project: Project; shot: number }) {
         </div>
         <h3 className="font-display text-2xl mb-2">{project.title}</h3>
 
+        {project.description && <p className="text-sm text-muted leading-relaxed mb-3">{project.description}</p>}
+
         {project.techStack.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mb-3">
             {project.techStack.map((tech) => (

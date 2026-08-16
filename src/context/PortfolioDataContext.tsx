@@ -49,6 +49,7 @@ export function PortfolioDataProvider({ children }: { children: ReactNode }) {
         title: p.title,
         category: p.category,
         year: p.year || "",
+        description: p.description || "",
         imageUrl: p.coverImageUrl || "https://picsum.photos/seed/placeholder/700/525",
         techStack: p.techStack || [],
         problemStatement: p.problemStatement || "",

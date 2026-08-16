@@ -12,7 +12,7 @@ export const PORTFOLIO_QUERY = `{
     year, title, detail
   },
   "projects": *[_type == "project"] | order(order asc){
-    title, category, year, "coverImageUrl": coverImage.asset->url,
+    title, category, year, description, "coverImageUrl": coverImage.asset->url,
     techStack, problemStatement, solution, githubUrl, siteUrl, featured
   }
 }`;
@@ -21,6 +21,7 @@ export interface SanityProject {
   title: string;
   category: "personal" | "client";
   year?: string;
+  description?: string;
   coverImageUrl?: string;
   techStack?: string[];
   problemStatement?: string;
