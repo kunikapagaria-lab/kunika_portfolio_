@@ -19,7 +19,7 @@ export default function ProjectDetail() {
 
   if (!project) {
     return (
-      <>
+      <div className="page-fade-in">
         <Nav />
         <div className="max-w-[1100px] mx-auto px-6 md:px-10 pt-28 pb-16 md:pt-36 md:pb-24">
           <button onClick={goBack} className="panel-label mb-8 inline-block">
@@ -28,7 +28,7 @@ export default function ProjectDetail() {
           <h1 className="font-display text-4xl md:text-5xl mb-4">Project not found</h1>
           <p className="text-sm text-muted">That project doesn't exist — it may have moved or been renamed.</p>
         </div>
-      </>
+      </div>
     );
   }
 
@@ -36,7 +36,7 @@ export default function ProjectDetail() {
   const hasGithub = project.githubUrl && project.githubUrl !== "#";
 
   return (
-    <>
+    <div className="page-fade-in">
       <Nav />
       <div className="max-w-[1100px] mx-auto px-6 md:px-10 pt-28 pb-16 md:pt-36 md:pb-24">
         <button onClick={goBack} className="panel-label mb-8 inline-block">
@@ -111,6 +111,6 @@ export default function ProjectDetail() {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
