@@ -146,31 +146,14 @@ img {
   }
 }
 
-@keyframes turtle-idle-breathe {
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-1px) rotate(0deg);
-  }
-}
-
 .turtle-crawl {
   transform-box: fill-box;
   transform-origin: center;
   animation: turtle-crawl 0.45s ease-in-out infinite;
 }
 
-.turtle-idle {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: turtle-idle-breathe 2.4s ease-in-out infinite;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .turtle-crawl,
-  .turtle-idle {
+  .turtle-crawl {
     animation: none;
   }
 }

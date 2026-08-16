@@ -1,42 +1,20 @@
 import { useEffect, useRef, useState } from "react";
-import turtleImg from "../assets/turtle-walk.png";
+import TurtleSvg from "../assets/turtle.svg?react";
 
 const PATH_D = "M50 0 C 50 90, 78 90, 78 180 C 78 270, 22 270, 22 360 C 22 450, 78 450, 78 540 C 78 630, 22 630, 22 720";
 
-function TurtleIcon({ tucked, crawling }: { tucked: boolean; crawling: boolean }) {
-  return (
-    <g className={crawling ? "turtle-crawl" : "turtle-idle"}>
-      <image
-        href={turtleImg}
-        x="-25"
-        y="-13"
-        width="50"
-        height="26"
-        preserveAspectRatio="xMidYMid meet"
-        style={{
-          transform: tucked ? "scale(0.85, 0.9)" : "scale(1, 1)",
-          transformOrigin: "center",
-          transition: "transform 0.25s ease",
-        }}
-      />
-    </g>
-  );
-}
+// One-way crawl from top to bottom, then back up, forever — independent of scrolling.
+const ONE_WAY_MS = 60000;
+const CYCLE_MS = ONE_WAY_MS * 2;
 
 export default function ScrollPath() {
   const pathRef = useRef<SVGPathElement>(null);
   const [point, setPoint] = useState({ x: 50, y: 0 });
   const [pathLength, setPathLength] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [tucked, setTucked] = useState(false);
-  const [crawling, setCrawling] = useState(false);
   const [spinning, setSpinning] = useState(false);
   const clickCount = useRef(0);
-  const lastScrollY = useRef(0);
-  const lastTime = useRef(0);
-  const tuckTimeout = useRef<number | undefined>(undefined);
-  const targetProgress = useRef(0);
-  const animatedProgress = useRef(0);
+  const startTime = useRef(0);
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -44,67 +22,29 @@ export default function ScrollPath() {
     const path = pathRef.current;
     if (path) setPathLength(path.getTotalLength());
 
-    const readTarget = () => {
-      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-      targetProgress.current =
-        scrollableHeight > 0 ? Math.min(Math.max(window.scrollY / scrollableHeight, 0), 1) : 0;
-
-      const now = performance.now();
-      const dt = now - lastTime.current;
-      const dy = Math.abs(window.scrollY - lastScrollY.current);
-      if (dt > 0 && dy / dt > 1.2) {
-        setTucked(true);
-        window.clearTimeout(tuckTimeout.current);
-        tuckTimeout.current = window.setTimeout(() => setTucked(false), 350);
-      }
-      lastScrollY.current = window.scrollY;
-      lastTime.current = now;
-    };
-
-    readTarget();
-
     if (reduced) {
-      const p = pathRef.current;
-      if (p) {
-        const length = p.getTotalLength();
-        animatedProgress.current = targetProgress.current;
-        setPoint(p.getPointAtLength(targetProgress.current * length));
-        setProgress(targetProgress.current);
-      }
-      window.addEventListener("scroll", readTarget, { passive: true });
-      window.addEventListener("resize", readTarget);
-      return () => {
-        window.removeEventListener("scroll", readTarget);
-        window.removeEventListener("resize", readTarget);
-        window.clearTimeout(tuckTimeout.current);
-      };
+      if (path) setPoint(path.getPointAtLength(0));
+      return;
     }
 
+    startTime.current = performance.now();
     let raf: number;
-    const tick = () => {
+
+    const tick = (now: number) => {
       const p = pathRef.current;
       if (p) {
-        const diff = targetProgress.current - animatedProgress.current;
-        animatedProgress.current += diff * 0.12;
-        if (Math.abs(diff) < 0.0006) animatedProgress.current = targetProgress.current;
-
+        const elapsed = (now - startTime.current) % CYCLE_MS;
+        const cyclePos = elapsed / ONE_WAY_MS;
+        const t = cyclePos <= 1 ? cyclePos : 2 - cyclePos;
         const length = p.getTotalLength();
-        setPoint(p.getPointAtLength(animatedProgress.current * length));
-        setProgress(animatedProgress.current);
-        setCrawling(Math.abs(diff) > 0.0008);
+        setPoint(p.getPointAtLength(t * length));
+        setProgress(t);
       }
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
 
-    window.addEventListener("scroll", readTarget, { passive: true });
-    window.addEventListener("resize", readTarget);
-    return () => {
-      window.removeEventListener("scroll", readTarget);
-      window.removeEventListener("resize", readTarget);
-      cancelAnimationFrame(raf);
-      window.clearTimeout(tuckTimeout.current);
-    };
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   const handleTurtleClick = () => {
@@ -134,8 +74,8 @@ export default function ScrollPath() {
         <circle cx="22" cy="720" r="4" fill="#111" />
         <g style={{ transform: `translate(${point.x}px, ${point.y}px)` }}>
           <g className={spinning ? "animate-turtle-spin" : ""}>
-            <g onClick={handleTurtleClick} className="pointer-events-auto cursor-pointer" transform="scale(1.3)">
-              <TurtleIcon tucked={tucked} crawling={crawling} />
+            <g onClick={handleTurtleClick} className="pointer-events-auto cursor-pointer turtle-crawl">
+              <TurtleSvg x={-24} y={-24} width={48} height={48} />
             </g>
           </g>
         </g>
