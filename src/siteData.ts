@@ -46,6 +46,7 @@ export interface Project {
   year: string;
   description: string;
   imageUrl: string;
+  images: string[];
   techStack: string[];
   problemStatement: string;
   solution: string;
@@ -62,6 +63,11 @@ export const projects: Project[] = [
     year: "2024",
     description: "",
     imageUrl: "https://picsum.photos/seed/automotive/700/525",
+    images: [
+      "https://picsum.photos/seed/automotive/900/600",
+      "https://picsum.photos/seed/automotive-2/900/600",
+      "https://picsum.photos/seed/automotive-3/900/600",
+    ],
     techStack: [],
     problemStatement: "",
     solution: "",
@@ -75,6 +81,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "",
     imageUrl: "https://picsum.photos/seed/portrait/700/525",
+    images: ["https://picsum.photos/seed/portrait/900/600", "https://picsum.photos/seed/portrait-2/900/600"],
     techStack: [],
     problemStatement: "",
     solution: "",
@@ -88,6 +95,10 @@ export const projects: Project[] = [
     year: "2024",
     description: "",
     imageUrl: "https://picsum.photos/seed/architecture/700/525",
+    images: [
+      "https://picsum.photos/seed/architecture/900/600",
+      "https://picsum.photos/seed/architecture-2/900/600",
+    ],
     techStack: [],
     problemStatement: "",
     solution: "",
@@ -101,6 +112,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "",
     imageUrl: "https://picsum.photos/seed/brand/700/525",
+    images: ["https://picsum.photos/seed/brand/900/600", "https://picsum.photos/seed/brand-2/900/600"],
     techStack: [],
     problemStatement: "",
     solution: "",

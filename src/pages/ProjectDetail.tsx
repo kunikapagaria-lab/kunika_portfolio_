@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { usePortfolioData } from "../context/PortfolioDataContext";
+import ImageCarousel from "../components/ImageCarousel";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
@@ -27,9 +28,7 @@ export default function ProjectDetail() {
         ← back to work
       </a>
 
-      <div className="border-2 border-stroke mb-8 overflow-hidden">
-        <img src={project.imageUrl} alt={project.title} className="w-full aspect-[16/9] object-cover" />
-      </div>
+      <ImageCarousel images={project.images} alt={project.title} />
 
       <div className="flex items-center gap-2 mb-4">
         {project.year && <span className="tag-bar bg-[#111]">{project.year}</span>}

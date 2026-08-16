@@ -5,35 +5,70 @@ import type { Project } from "../siteData";
 const TAG_COLORS = ["bg-emerald-600", "bg-blue-600", "bg-violet-600", "bg-amber-600"];
 
 function ProjectCard({ project, shot }: { project: Project; shot: number }) {
+  const hasSite = project.siteUrl && project.siteUrl !== "#";
+  const hasGithub = project.githubUrl && project.githubUrl !== "#";
+
   return (
-    <Link to={`/project/${project.slug}`} className="group panel block">
-      <div className="sprocket-strip">
-        {Array.from({ length: 9 }).map((_, h) => (
-          <span key={h} className="sprocket-hole" />
-        ))}
-      </div>
-      <div className="aspect-[4/3] overflow-hidden border-b-2 border-stroke">
-        <img
-          src={project.imageUrl}
-          alt={project.title}
-          loading="lazy"
-          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500"
-        />
-      </div>
+    <div className="group panel">
+      <Link to={`/project/${project.slug}`} className="block">
+        <div className="sprocket-strip">
+          {Array.from({ length: 9 }).map((_, h) => (
+            <span key={h} className="sprocket-hole" />
+          ))}
+        </div>
+        <div className="aspect-[4/3] overflow-hidden border-b-2 border-stroke">
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            loading="lazy"
+            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500"
+          />
+        </div>
+      </Link>
       <div className="p-5">
         <div className="flex items-center gap-2 mb-3">
           <span className="tag-bar bg-[#111]">SHOT {String(shot).padStart(2, "0")}</span>
           {project.year && <span className={`tag-bar ${TAG_COLORS[shot % TAG_COLORS.length]}`}>{project.year}</span>}
         </div>
-        <h3 className="font-display text-2xl mb-2">{project.title}</h3>
+
+        <Link to={`/project/${project.slug}`}>
+          <h3 className="font-display text-2xl mb-2 hover:underline underline-offset-4">{project.title}</h3>
+        </Link>
 
         {project.description && (
-          <p className="text-sm text-muted leading-relaxed mb-3 line-clamp-2">{project.description}</p>
+          <p className="text-sm text-muted leading-relaxed mb-4 line-clamp-2">{project.description}</p>
         )}
 
-        <span className="text-xs uppercase tracking-widest underline underline-offset-4">view project →</span>
+        <div className="flex flex-wrap items-center gap-4">
+          <Link
+            to={`/project/${project.slug}`}
+            className="text-xs uppercase tracking-widest underline underline-offset-4"
+          >
+            view project →
+          </Link>
+          {hasSite && (
+            <a
+              href={project.siteUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs uppercase tracking-widest underline underline-offset-4"
+            >
+              visit site →
+            </a>
+          )}
+          {hasGithub && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs uppercase tracking-widest underline underline-offset-4"
+            >
+              github →
+            </a>
+          )}
+        </div>
       </div>
-    </Link>
+    </div>
   );
 }
 

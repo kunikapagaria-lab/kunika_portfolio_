@@ -13,6 +13,7 @@ export const PORTFOLIO_QUERY = `{
   },
   "projects": *[_type == "project"] | order(order asc){
     title, "slug": slug.current, category, year, description, "coverImageUrl": coverImage.asset->url,
+    "galleryUrls": gallery[].asset->url,
     techStack, problemStatement, solution, githubUrl, siteUrl, featured
   }
 }`;
@@ -24,6 +25,7 @@ export interface SanityProject {
   year?: string;
   description?: string;
   coverImageUrl?: string;
+  galleryUrls?: string[];
   techStack?: string[];
   problemStatement?: string;
   solution?: string;

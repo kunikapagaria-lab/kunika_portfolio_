@@ -60,6 +60,7 @@ export function PortfolioDataProvider({ children }: { children: ReactNode }) {
         year: p.year || "",
         description: p.description || "",
         imageUrl: p.coverImageUrl || "https://picsum.photos/seed/placeholder/700/525",
+        images: p.galleryUrls?.length ? p.galleryUrls : [p.coverImageUrl || "https://picsum.photos/seed/placeholder/900/600"],
         techStack: p.techStack || [],
         problemStatement: p.problemStatement || "",
         solution: p.solution || "",
