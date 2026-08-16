@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { usePortfolioData } from "../context/PortfolioDataContext";
 import SayHiModal from "./SayHiModal";
 
@@ -12,6 +13,8 @@ const LINKS = [
 
 export default function Nav() {
   const { site } = usePortfolioData();
+  const { pathname } = useLocation();
+  const onHome = pathname === "/";
   const [active, setActive] = useState("home");
   const headerRef = useRef<HTMLElement>(null);
 
@@ -48,7 +51,7 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 bg-bg border-b-2 border-stroke">
       <div className="max-w-[1100px] mx-auto px-6 md:px-10 py-5 flex flex-wrap items-center justify-between gap-y-3">
-        <a href="#home" className="font-display text-3xl tracking-wide">
+        <a href={onHome ? "#home" : "/#home"} className="font-display text-3xl tracking-wide">
           {site.name}
         </a>
         <div className="flex flex-wrap items-center gap-8 md:gap-10">
@@ -56,9 +59,9 @@ export default function Nav() {
             {LINKS.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={onHome ? link.href : `/${link.href}`}
                 className={`font-body text-sm uppercase tracking-widest ${
-                  active === link.id ? "font-bold underline underline-offset-4" : "text-muted hover:text-text-primary"
+                  onHome && active === link.id ? "font-bold underline underline-offset-4" : "text-muted hover:text-text-primary"
                 }`}
               >
                 {link.label}
