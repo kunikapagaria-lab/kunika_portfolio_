@@ -1,6 +1,6 @@
 export const PORTFOLIO_QUERY = `{
   "settings": *[_type == "siteSettings"][0]{
-    name, tagline, email, location, currentlyLine, "cvUrl": cv.asset->url
+    name, tagline, email, "cvUrl": cv.asset->url
   },
   "about": *[_type == "about"][0]{
     shortBio, bio, "photoUrl": photo.asset->url, quote, quoteAuthor
@@ -39,8 +39,6 @@ export interface SanityPortfolioData {
     name?: string;
     tagline?: string;
     email?: string;
-    location?: string;
-    currentlyLine?: string;
     cvUrl?: string;
   } | null;
   about: {

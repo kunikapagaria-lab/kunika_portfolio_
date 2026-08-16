@@ -3,6 +3,7 @@ import aboutIllustration from "../assets/kunika-about.png";
 
 export default function About() {
   const { journey, site } = usePortfolioData();
+  const photoSrc = site.photoUrl ? `${site.photoUrl}?w=640&h=800&fit=crop&auto=format` : aboutIllustration;
 
   return (
     <div className="max-w-[1100px] mx-auto px-6 md:px-10 py-16 md:py-24">
@@ -14,9 +15,9 @@ export default function About() {
           <p className="text-sm md:text-base leading-relaxed max-w-2xl">{site.bio}</p>
         </div>
         <img
-          src={aboutIllustration}
+          src={photoSrc}
           alt={site.name}
-          className="h-64 md:h-80 w-auto justify-self-center object-contain"
+          className="h-64 md:h-80 w-52 md:w-64 justify-self-center object-cover border-2 border-stroke"
           style={{ imageRendering: "auto" }}
         />
       </div>

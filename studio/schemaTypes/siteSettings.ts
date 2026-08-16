@@ -8,8 +8,6 @@ export default defineType({
     defineField({ name: "name", title: "Full Name", type: "string" }),
     defineField({ name: "tagline", title: "Tagline", type: "string" }),
     defineField({ name: "email", title: "Contact Email", type: "string" }),
-    defineField({ name: "location", title: "Location", type: "string" }),
-    defineField({ name: "currentlyLine", title: "Currently working on...", type: "string" }),
     defineField({ name: "cv", title: "CV / Resume", type: "file" }),
   ],
 });

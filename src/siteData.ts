@@ -8,8 +8,9 @@ export const site = {
   bio: "Engineering graduate with a strong interest in product development, project management, and technology-driven problem solving. Skilled at turning ideas into practical, user-focused products through fast execution and modern development tools. Comfortable working across both technical and creative workflows, with a focus on building functional, deployment-ready applications. Known for adaptability, quick learning, problem-solving, and working effectively in fast-paced environments.",
   quote: "The journey is the destination.",
   quoteAuthor: "Ralph Waldo Emerson",
-  location: "Kolkata, India",
   email: "hello@kunikapagaria.com",
+  cvUrl: "/resume.pdf",
+  photoUrl: "",
 };
 
 export const skills = [

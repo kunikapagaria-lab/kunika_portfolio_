@@ -64,7 +64,12 @@ export default function Nav() {
           </nav>
           <span className="hidden sm:block w-px h-5 bg-stroke" />
           <div className="flex items-center gap-4">
-            <a href={site.cvUrl} download className="tag-bar tag-bar-outline text-xs px-3 py-1.5">
+            <a
+              href={site.cvUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="tag-bar tag-bar-outline text-xs px-3 py-1.5"
+            >
               cv ↓
             </a>
             <SayHiModal buttonClassName="tag-bar tag-bar-outline text-xs px-3 py-1.5" label="write me →" />

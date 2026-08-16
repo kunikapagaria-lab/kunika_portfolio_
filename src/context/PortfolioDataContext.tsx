@@ -40,13 +40,11 @@ export function PortfolioDataProvider({ children }: { children: ReactNode }) {
     name: remote?.settings?.name || fallbackSite.name,
     tagline: remote?.settings?.tagline || fallbackSite.tagline,
     email: remote?.settings?.email || fallbackSite.email,
-    location: remote?.settings?.location || fallbackSite.location,
     shortBio: remote?.about?.shortBio || fallbackSite.shortBio,
     bio: remote?.about?.bio || fallbackSite.bio,
     quote: remote?.about?.quote || fallbackSite.quote,
     quoteAuthor: remote?.about?.quoteAuthor || fallbackSite.quoteAuthor,
     cvUrl: remote?.settings?.cvUrl || "/resume.pdf",
-    currentlyLine: remote?.settings?.currentlyLine || "",
     photoUrl: remote?.about?.photoUrl || "",
   };
 
