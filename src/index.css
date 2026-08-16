@@ -147,7 +147,6 @@ img {
 }
 
 .turtle-crawl {
-  transform-box: fill-box;
   transform-origin: center;
   animation: turtle-crawl 0.45s ease-in-out infinite;
 }

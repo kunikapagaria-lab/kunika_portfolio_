@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import TurtleSvg from "../assets/turtle.svg?react";
+import turtleUrl from "../assets/turtle.svg";
 
 const PATH_D = "M50 0 C 50 90, 78 90, 78 180 C 78 270, 22 270, 22 360 C 22 450, 78 450, 78 540 C 78 630, 22 630, 22 720";
+const VIEW_W = 100;
+const VIEW_H = 720;
 
 // One-way crawl from top to bottom, then back up, forever — independent of scrolling.
 const ONE_WAY_MS = 60000;
@@ -58,7 +60,7 @@ export default function ScrollPath() {
 
   return (
     <div className="hidden md:block fixed right-10 top-0 h-screen w-24 z-40 pointer-events-none">
-      <svg viewBox="0 0 100 720" preserveAspectRatio="none" className="w-full h-full" fill="none">
+      <svg viewBox={`0 0 ${VIEW_W} ${VIEW_H}`} preserveAspectRatio="none" className="w-full h-full" fill="none">
         <path d={PATH_D} stroke="hsl(var(--stroke))" strokeWidth="2" strokeDasharray="4 6" strokeLinecap="round" fill="none" />
         <path
           ref={pathRef}
@@ -72,14 +74,21 @@ export default function ScrollPath() {
         />
         <circle cx="50" cy="0" r="4" fill="#fff" stroke="#111" strokeWidth="2" />
         <circle cx="22" cy="720" r="4" fill="#111" />
-        <g style={{ transform: `translate(${point.x}px, ${point.y}px)` }}>
-          <g className={spinning ? "animate-turtle-spin" : ""}>
-            <g onClick={handleTurtleClick} className="pointer-events-auto cursor-pointer turtle-crawl">
-              <TurtleSvg x={-24} y={-24} width={48} height={48} />
-            </g>
-          </g>
-        </g>
       </svg>
+      <div
+        style={{
+          position: "absolute",
+          left: `${(point.x / VIEW_W) * 100}%`,
+          top: `${(point.y / VIEW_H) * 100}%`,
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <div className={spinning ? "animate-turtle-spin" : ""}>
+          <div onClick={handleTurtleClick} className="pointer-events-auto cursor-pointer turtle-crawl">
+            <img src={turtleUrl} alt="" width={40} className="block" draggable={false} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
