@@ -88,7 +88,7 @@ export default function Work() {
       {personalProjects.length > 0 && (
         <>
           <span className="panel-label">personal projects</span>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4 mb-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10 mt-4 mb-14">
             {personalProjects.map((project, i) => (
               <ProjectCard key={project.slug} project={project} shot={i + 1} />
             ))}
@@ -99,7 +99,7 @@ export default function Work() {
       {clientWork.length > 0 && (
         <>
           <span className="panel-label">client work</span>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10 mt-4">
             {clientWork.map((project, i) => (
               <ProjectCard key={project.slug} project={project} shot={personalProjects.length + i + 1} />
             ))}
