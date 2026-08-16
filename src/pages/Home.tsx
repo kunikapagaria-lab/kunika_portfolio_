@@ -27,6 +27,7 @@ export default function Home() {
         src={kunikaIllustration}
         alt={site.name}
         className="h-80 md:h-[34rem] w-auto justify-self-center object-contain"
+        style={{ imageRendering: "auto" }}
       />
     </div>
   );
