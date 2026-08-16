@@ -38,11 +38,6 @@ export default function About() {
           </div>
         ))}
       </div>
-
-      <div className="panel p-8 max-w-xl">
-        <p className="font-display text-3xl mb-2">&ldquo;{site.quote}&rdquo;</p>
-        <p className="text-xs text-muted uppercase tracking-widest">— {site.quoteAuthor}</p>
-      </div>
     </div>
   );
 }
