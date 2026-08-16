@@ -1,5 +1,5 @@
-import ScribbleAvatar from "../components/ScribbleAvatar";
 import { usePortfolioData } from "../context/PortfolioDataContext";
+import kunikaIllustration from "../assets/kunika-colour-pixel.png";
 
 export default function Home() {
   const { site } = usePortfolioData();
@@ -23,7 +23,11 @@ export default function Home() {
           </a>
         </div>
       </div>
-      <ScribbleAvatar className="w-56 h-56 md:w-72 md:h-72 justify-self-center" />
+      <img
+        src={kunikaIllustration}
+        alt={site.name}
+        className="w-56 h-56 md:w-72 md:h-72 justify-self-center object-contain"
+      />
     </div>
   );
 }

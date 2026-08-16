@@ -1,28 +1,23 @@
 import { useEffect, useRef, useState } from "react";
+import turtleImg from "../assets/turtle-icon.png";
 
 const PATH_D = "M50 0 C 50 90, 78 90, 78 180 C 78 270, 22 270, 22 360 C 22 450, 78 450, 78 540 C 78 630, 22 630, 22 720";
 
 function TurtleIcon({ tucked }: { tucked: boolean }) {
   return (
-    <g stroke="#111" strokeWidth="2" fill="url(#turtle-stipple)" strokeLinejoin="round" strokeLinecap="round">
-      <defs>
-        <pattern id="turtle-stipple" width="3" height="3" patternUnits="userSpaceOnUse">
-          <rect width="3" height="3" fill="#fff" />
-          <rect width="1.6" height="1.6" fill="#111" />
-        </pattern>
-      </defs>
-      <path d="M-20 0 C -20 -15, -8 -22, 0 -22 C 8 -22, 20 -15, 20 0 C 20 13, 8 20, 0 20 C -8 20, -20 13, -20 0 Z" />
-      <path d="M0 -22 L 0 20 M-15 -9 L 15 -9 M-15 9 L 15 9" strokeWidth="1.3" fill="none" />
-      <circle cx={tucked ? 14 : 26} cy="-2" r="6.5" style={{ transition: "cx 0.25s ease" }} />
-      <circle cx={tucked ? 17 : 29} cy="-4" r="1" fill="#111" stroke="none" style={{ transition: "cx 0.25s ease" }} />
-      <g opacity={tucked ? 0 : 1} style={{ transition: "opacity 0.2s ease" }}>
-        <ellipse cx="-15" cy="-17" rx="5.5" ry="3.2" transform="rotate(-25 -15 -17)" />
-        <ellipse cx="-15" cy="17" rx="5.5" ry="3.2" transform="rotate(25 -15 17)" />
-        <ellipse cx="15" cy="-17" rx="5.5" ry="3.2" transform="rotate(25 15 -17)" />
-        <ellipse cx="15" cy="17" rx="5.5" ry="3.2" transform="rotate(-25 15 17)" />
-      </g>
-      <path d="M-20 0 L -27 0" strokeWidth="2" opacity={tucked ? 0 : 1} style={{ transition: "opacity 0.2s ease" }} />
-    </g>
+    <image
+      href={turtleImg}
+      x="-21"
+      y="-22"
+      width="42"
+      height="44"
+      preserveAspectRatio="xMidYMid meet"
+      style={{
+        transform: tucked ? "scale(0.85, 0.92)" : "scale(1, 1)",
+        transformOrigin: "center",
+        transition: "transform 0.25s ease",
+      }}
+    />
   );
 }
 
