@@ -36,7 +36,7 @@ export default function TurtleRunGame() {
     turtleY.current = 0;
     velocity.current = 0;
     obstacles.current = [];
-    speed.current = 5;
+    speed.current = 2.5;
     distance.current = 0;
     frame.current = 0;
     nextSpawn.current = 60;
@@ -111,13 +111,13 @@ export default function TurtleRunGame() {
         }
 
         distance.current += speed.current * 0.06;
-        speed.current = Math.min(13, 5 + distance.current * 0.05);
+        speed.current = Math.min(6, 2.5 + distance.current * 0.015);
 
         nextSpawn.current -= 1;
         if (nextSpawn.current <= 0) {
           const h = 18 + Math.floor(Math.random() * 22);
           obstacles.current.push({ x: WIDTH, width: 14 + Math.floor(Math.random() * 10), height: h });
-          nextSpawn.current = 55 + Math.floor(Math.random() * 45) - Math.min(30, distance.current);
+          nextSpawn.current = 70 + Math.floor(Math.random() * 40) - Math.min(20, distance.current * 0.3);
         }
 
         obstacles.current.forEach((o) => (o.x -= speed.current));
