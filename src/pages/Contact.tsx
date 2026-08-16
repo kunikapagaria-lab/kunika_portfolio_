@@ -6,7 +6,6 @@ export default function Contact() {
 
   return (
     <div className="max-w-[1100px] mx-auto px-6 md:px-10 py-16 md:py-24">
-      <span className="scene-slug">INT. CONTACT — NIGHT</span>
       <span className="panel-label">04 — contact</span>
       <h1 className="font-display text-5xl md:text-6xl mt-4 mb-6">Let's Talk</h1>
       <p className="text-sm md:text-base leading-relaxed max-w-md mb-10">

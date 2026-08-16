@@ -70,17 +70,6 @@ img {
   border: 2px solid hsl(var(--stroke));
 }
 
-/* ---------- Scene slug (screenplay-style header) ---------- */
-
-.scene-slug {
-  display: block;
-  font-family: "Space Mono", monospace;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: hsl(var(--muted));
-  margin-bottom: 0.75rem;
-}
 
 /* ---------- Sprocket holes (film strip) ---------- */
 

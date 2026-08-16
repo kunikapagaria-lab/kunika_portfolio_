@@ -81,7 +81,6 @@ export default function Work() {
 
   return (
     <div className="max-w-[1100px] mx-auto px-6 md:px-10 py-16 md:py-24">
-      <span className="scene-slug">INT. WORK — DAY</span>
       <span className="panel-label">02 — work</span>
       <h1 className="font-display text-5xl md:text-6xl mt-4 mb-10">Selected Work</h1>
 
