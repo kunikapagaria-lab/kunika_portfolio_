@@ -34,7 +34,7 @@ export default function About() {
               <p className="font-bold text-sm">{step.title}</p>
               <p className="text-sm text-muted">{step.detail}</p>
             </div>
-            {i === journey.length - 1 && <span className="tag-bar bg-accent ml-auto self-center">now</span>}
+            {i === 0 && <span className="tag-bar bg-accent ml-auto self-center">now</span>}
           </div>
         ))}
       </div>
