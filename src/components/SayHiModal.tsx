@@ -1,10 +1,7 @@
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 import { usePortfolioData } from "../context/PortfolioDataContext";
 
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
 interface SayHiModalProps {
   buttonClassName?: string;
@@ -32,7 +29,7 @@ export default function SayHiModal({
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+    if (!WEB3FORMS_ACCESS_KEY) {
       const subject = encodeURIComponent(`Message from ${name || "your portfolio"}`);
       const body = encodeURIComponent(`${message}\n\n— ${name}${email ? ` (${email})` : ""}`);
       window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
@@ -41,18 +38,26 @@ export default function SayHiModal({
 
     setStatus("sending");
     try {
-      await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        { from_name: name, from_email: email, message, to_email: site.email },
-        { publicKey: PUBLIC_KEY }
-      );
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New message from ${name}`,
+          name,
+          email,
+          message,
+        }),
+      });
+      const result = await res.json();
+      if (!result.success) throw new Error(result.message || "Web3Forms request failed");
+
       setStatus("sent");
       setName("");
       setEmail("");
       setMessage("");
     } catch (err) {
-      console.error("EmailJS send failed:", err);
+      console.error("Web3Forms send failed:", err);
       setStatus("error");
     }
   };
