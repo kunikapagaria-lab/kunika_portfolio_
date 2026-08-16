@@ -10,7 +10,7 @@ export default function ScrollToTop() {
     // browser back/forward (POP) — that should keep the browser's native
     // scroll restoration so "back to work" lands where you left off.
     if (navigationType !== "POP") {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     }
   }, [pathname, navigationType]);
 
