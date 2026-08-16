@@ -16,7 +16,7 @@ function ProjectCard({ project, shot }: { project: Project; shot: number }) {
             <span key={h} className="sprocket-hole" />
           ))}
         </div>
-        <div className="aspect-[4/3] overflow-hidden border-b-2 border-stroke">
+        <div className="aspect-[16/10] overflow-hidden border-b-2 border-stroke">
           <img
             src={project.imageUrl}
             alt={project.title}
@@ -25,18 +25,20 @@ function ProjectCard({ project, shot }: { project: Project; shot: number }) {
           />
         </div>
       </Link>
-      <div className="p-5">
-        <div className="flex items-center gap-2 mb-3">
-          <span className="tag-bar bg-[#111]">SHOT {String(shot).padStart(2, "0")}</span>
-          {project.year && <span className={`tag-bar ${TAG_COLORS[shot % TAG_COLORS.length]}`}>{project.year}</span>}
+      <div className="p-4">
+        <div className="flex items-center gap-2 mb-2.5">
+          <span className="tag-bar bg-[#111] text-[0.65rem]">SHOT {String(shot).padStart(2, "0")}</span>
+          {project.year && (
+            <span className={`tag-bar text-[0.65rem] ${TAG_COLORS[shot % TAG_COLORS.length]}`}>{project.year}</span>
+          )}
         </div>
 
         <Link to={`/project/${project.slug}`}>
-          <h3 className="font-display text-2xl mb-2 hover:underline underline-offset-4">{project.title}</h3>
+          <h3 className="font-display text-xl mb-1.5 hover:underline underline-offset-4">{project.title}</h3>
         </Link>
 
         {project.description && (
-          <p className="text-sm text-muted leading-relaxed mb-4 line-clamp-2">{project.description}</p>
+          <p className="text-sm text-muted leading-relaxed mb-3">{project.description}</p>
         )}
 
         <div className="flex flex-wrap items-center gap-4">
@@ -86,7 +88,7 @@ export default function Work() {
       {personalProjects.length > 0 && (
         <>
           <span className="panel-label">personal projects</span>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-4 mb-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4 mb-14">
             {personalProjects.map((project, i) => (
               <ProjectCard key={project.slug} project={project} shot={i + 1} />
             ))}
@@ -97,7 +99,7 @@ export default function Work() {
       {clientWork.length > 0 && (
         <>
           <span className="panel-label">client work</span>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
             {clientWork.map((project, i) => (
               <ProjectCard key={project.slug} project={project} shot={personalProjects.length + i + 1} />
             ))}

@@ -1,18 +1,27 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { usePortfolioData } from "../context/PortfolioDataContext";
 import ImageCarousel from "../components/ImageCarousel";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const { projects } = usePortfolioData();
   const project = projects.find((p) => p.slug === slug);
 
+  const goBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/#work");
+    }
+  };
+
   if (!project) {
     return (
-      <div className="max-w-[900px] mx-auto px-6 md:px-10 py-16 md:py-24">
-        <a href="/#work" className="panel-label mb-8 inline-block">
-          ← back to work
-        </a>
+      <div className="max-w-[1100px] mx-auto px-6 md:px-10 py-16 md:py-24">
+        <button onClick={goBack} className="panel-label mb-8 inline-block">
+          ← back
+        </button>
         <h1 className="font-display text-4xl md:text-5xl mb-4">Project not found</h1>
         <p className="text-sm text-muted">That project doesn't exist — it may have moved or been renamed.</p>
       </div>
@@ -23,10 +32,10 @@ export default function ProjectDetail() {
   const hasGithub = project.githubUrl && project.githubUrl !== "#";
 
   return (
-    <div className="max-w-[900px] mx-auto px-6 md:px-10 py-16 md:py-24">
-      <a href="/#work" className="panel-label mb-8 inline-block">
-        ← back to work
-      </a>
+    <div className="max-w-[1100px] mx-auto px-6 md:px-10 py-16 md:py-24">
+      <button onClick={goBack} className="panel-label mb-8 inline-block">
+        ← back
+      </button>
 
       <ImageCarousel images={project.images} alt={project.title} />
 

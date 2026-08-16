@@ -36,8 +36,8 @@ export default function Nav() {
         <a href="#home" className="font-display text-3xl tracking-wide">
           {site.name}
         </a>
-        <div className="flex flex-wrap items-center gap-5 md:gap-6">
-          <nav className="flex gap-5 md:gap-6">
+        <div className="flex flex-wrap items-center gap-8 md:gap-10">
+          <nav className="flex gap-8 md:gap-10">
             {LINKS.map((link) => (
               <a
                 key={link.href}
@@ -51,7 +51,7 @@ export default function Nav() {
             ))}
           </nav>
           <span className="hidden sm:block w-px h-5 bg-stroke" />
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <a href={site.cvUrl} download className="tag-bar tag-bar-outline text-xs px-3 py-1.5">
               cv ↓
             </a>
