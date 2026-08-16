@@ -41,6 +41,7 @@ export const journey = [
 
 export interface Project {
   title: string;
+  slug: string;
   category: "personal" | "client";
   year: string;
   description: string;
@@ -56,6 +57,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: "Automotive Motion",
+    slug: "automotive-motion",
     category: "personal",
     year: "2024",
     description: "",
@@ -68,6 +70,7 @@ export const projects: Project[] = [
   },
   {
     title: "Human Perspective",
+    slug: "human-perspective",
     category: "personal",
     year: "2023",
     description: "",
@@ -80,6 +83,7 @@ export const projects: Project[] = [
   },
   {
     title: "Urban Architecture",
+    slug: "urban-architecture",
     category: "client",
     year: "2024",
     description: "",
@@ -92,6 +96,7 @@ export const projects: Project[] = [
   },
   {
     title: "Brand Identity",
+    slug: "brand-identity",
     category: "client",
     year: "2023",
     description: "",

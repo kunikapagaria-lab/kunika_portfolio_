@@ -13,6 +13,14 @@ interface PortfolioData {
 
 const PortfolioDataContext = createContext<PortfolioData | null>(null);
 
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 export function PortfolioDataProvider({ children }: { children: ReactNode }) {
   const [remote, setRemote] = useState<SanityPortfolioData | null>(null);
   const [loading, setLoading] = useState(sanityEnabled);
@@ -47,6 +55,7 @@ export function PortfolioDataProvider({ children }: { children: ReactNode }) {
   const projects: Project[] = remote?.projects?.length
     ? remote.projects.map((p) => ({
         title: p.title,
+        slug: p.slug || slugify(p.title),
         category: p.category,
         year: p.year || "",
         description: p.description || "",

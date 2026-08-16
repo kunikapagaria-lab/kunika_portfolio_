@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { usePortfolioData } from "../context/PortfolioDataContext";
 import type { Project } from "../siteData";
 
@@ -5,7 +6,7 @@ const TAG_COLORS = ["bg-emerald-600", "bg-blue-600", "bg-violet-600", "bg-amber-
 
 function ProjectCard({ project, shot }: { project: Project; shot: number }) {
   return (
-    <div className="group panel">
+    <Link to={`/project/${project.slug}`} className="group panel block">
       <div className="sprocket-strip">
         {Array.from({ length: 9 }).map((_, h) => (
           <span key={h} className="sprocket-hole" />
@@ -26,41 +27,13 @@ function ProjectCard({ project, shot }: { project: Project; shot: number }) {
         </div>
         <h3 className="font-display text-2xl mb-2">{project.title}</h3>
 
-        {project.description && <p className="text-sm text-muted leading-relaxed mb-3">{project.description}</p>}
-
-        {project.techStack.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 mb-3">
-            {project.techStack.map((tech) => (
-              <span key={tech} className="text-[0.65rem] uppercase tracking-widest border border-stroke px-2 py-0.5">
-                {tech}
-              </span>
-            ))}
-          </div>
+        {project.description && (
+          <p className="text-sm text-muted leading-relaxed mb-3 line-clamp-2">{project.description}</p>
         )}
 
-        {project.problemStatement && (
-          <p className="text-xs text-muted mb-2">
-            <span className="font-bold text-text-primary">Problem: </span>
-            {project.problemStatement}
-          </p>
-        )}
-        {project.solution && (
-          <p className="text-xs text-muted mb-3">
-            <span className="font-bold text-text-primary">Solution: </span>
-            {project.solution}
-          </p>
-        )}
-
-        <div className="flex items-center gap-4 mt-2">
-          <a href={project.siteUrl} className="text-xs uppercase tracking-widest underline underline-offset-4">
-            visit site →
-          </a>
-          <a href={project.githubUrl} className="text-xs uppercase tracking-widest underline underline-offset-4">
-            github →
-          </a>
-        </div>
+        <span className="text-xs uppercase tracking-widest underline underline-offset-4">view project →</span>
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -80,7 +53,7 @@ export default function Work() {
           <span className="panel-label">personal projects</span>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-4 mb-14">
             {personalProjects.map((project, i) => (
-              <ProjectCard key={project.title} project={project} shot={i + 1} />
+              <ProjectCard key={project.slug} project={project} shot={i + 1} />
             ))}
           </div>
         </>
@@ -91,7 +64,7 @@ export default function Work() {
           <span className="panel-label">client work</span>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-4">
             {clientWork.map((project, i) => (
-              <ProjectCard key={project.title} project={project} shot={personalProjects.length + i + 1} />
+              <ProjectCard key={project.slug} project={project} shot={personalProjects.length + i + 1} />
             ))}
           </div>
         </>
