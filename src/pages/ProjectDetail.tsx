@@ -56,7 +56,7 @@ export default function ProjectDetail() {
       )}
 
       {(project.problemStatement || project.solution) && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+        <div className="flex flex-col gap-6 mb-10">
           {project.problemStatement && (
             <div className="panel p-6">
               <span className="panel-label mb-3 inline-block">problem</span>
