@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { usePortfolioData } from "../context/PortfolioDataContext";
 import SayHiModal from "./SayHiModal";
 
@@ -36,22 +36,31 @@ export default function Nav() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-bg border-b-2 border-stroke">
       <div className="max-w-[1100px] mx-auto px-6 md:px-10 py-5 flex flex-wrap items-center justify-between gap-y-3">
-        <a href={onHome ? "#home" : "/#home"} className="font-display text-3xl tracking-wide">
-          {site.name}
-        </a>
+        {onHome ? (
+          <a href="#home" className="font-display text-3xl tracking-wide">
+            {site.name}
+          </a>
+        ) : (
+          <Link to="/#home" className="font-display text-3xl tracking-wide">
+            {site.name}
+          </Link>
+        )}
         <div className="flex flex-wrap items-center gap-8 md:gap-10">
           <nav className="flex gap-10 md:gap-14">
-            {LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={onHome ? link.href : `/${link.href}`}
-                className={`font-body text-sm uppercase tracking-widest ${
-                  onHome && active === link.id ? "font-bold underline underline-offset-4" : "text-muted hover:text-text-primary"
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
+            {LINKS.map((link) => {
+              const className = `font-body text-sm uppercase tracking-widest ${
+                onHome && active === link.id ? "font-bold underline underline-offset-4" : "text-muted hover:text-text-primary"
+              }`;
+              return onHome ? (
+                <a key={link.href} href={link.href} className={className}>
+                  {link.label}
+                </a>
+              ) : (
+                <Link key={link.href} to={`/${link.href}`} className={className}>
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
           <span className="hidden sm:block w-px h-5 bg-stroke" />
           <div className="flex items-center gap-4">
