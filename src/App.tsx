@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Work from "./pages/Work";
 import Contact from "./pages/Contact";
+import Bonus from "./pages/Bonus";
 
 export default function App() {
   return (
@@ -34,6 +35,11 @@ export default function App() {
         <section id="contact" className="min-h-screen flex flex-col justify-center">
           <Reveal>
             <Contact />
+          </Reveal>
+        </section>
+        <section id="bonus" className="min-h-screen flex flex-col justify-center">
+          <Reveal>
+            <Bonus />
           </Reveal>
         </section>
       </div>
