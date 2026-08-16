@@ -2,10 +2,11 @@ import Nav from "../components/Nav";
 import BackToTop from "../components/BackToTop";
 import SceneSlate from "../components/SceneSlate";
 import Reveal from "../components/Reveal";
+import Footer from "../components/Footer";
 import Home from "./Home";
 import About from "./About";
 import Work from "./Work";
-import Contact from "./Contact";
+import Skills from "./Skills";
 import Bonus from "./Bonus";
 
 export default function MainPage() {
@@ -27,9 +28,9 @@ export default function MainPage() {
           <About />
         </Reveal>
       </section>
-      <section id="contact" className="min-h-screen flex flex-col justify-center">
+      <section id="skills" className="min-h-screen flex flex-col justify-center">
         <Reveal>
-          <Contact />
+          <Skills />
         </Reveal>
       </section>
       <section id="bonus" className="min-h-screen flex flex-col justify-center">
@@ -37,6 +38,7 @@ export default function MainPage() {
           <Bonus />
         </Reveal>
       </section>
+      <Footer />
     </>
   );
 }

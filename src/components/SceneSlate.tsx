@@ -4,7 +4,7 @@ const SCENES: Record<string, string> = {
   home: "01 — HOME",
   work: "02 — WORK",
   about: "03 — ABOUT",
-  contact: "04 — CONTACT",
+  skills: "04 — SKILLS",
 };
 const SECTION_IDS = Object.keys(SCENES);
 

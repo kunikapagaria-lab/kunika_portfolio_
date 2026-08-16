@@ -3,12 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import { usePortfolioData } from "../context/PortfolioDataContext";
 import SayHiModal from "./SayHiModal";
 
-const SECTION_IDS = ["home", "work", "about", "contact"];
+const SECTION_IDS = ["home", "work", "about", "skills"];
 const LINKS = [
   { label: "home", href: "#home", id: "home" },
   { label: "work", href: "#work", id: "work" },
   { label: "about", href: "#about", id: "about" },
-  { label: "contact", href: "#contact", id: "contact" },
+  { label: "skills", href: "#skills", id: "skills" },
 ];
 
 export default function Nav() {
