@@ -7,7 +7,7 @@ export default defineConfig({
   name: "default",
   title: "Kunika Pagaria — Portfolio Studio",
 
-  projectId: "YOUR_PROJECT_ID",
+  projectId: "ucw7oipb",
   dataset: "production",
 
   plugins: [structureTool(), visionTool()],
