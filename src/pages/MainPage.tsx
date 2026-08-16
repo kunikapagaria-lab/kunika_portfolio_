@@ -1,5 +1,4 @@
 import Nav from "../components/Nav";
-import ScrollPath from "../components/ScrollPath";
 import BackToTop from "../components/BackToTop";
 import SceneSlate from "../components/SceneSlate";
 import Reveal from "../components/Reveal";
@@ -13,7 +12,6 @@ export default function MainPage() {
   return (
     <>
       <Nav />
-      <ScrollPath />
       <BackToTop />
       <SceneSlate />
       <section id="home" className="min-h-[calc(100vh-var(--nav-h))] flex flex-col justify-center">
