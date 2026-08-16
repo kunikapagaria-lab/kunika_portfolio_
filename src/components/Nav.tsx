@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { usePortfolioData } from "../context/PortfolioDataContext";
+import { useAnchorScroll } from "../lib/useAnchorScroll";
 import SayHiModal from "./SayHiModal";
 
 const SECTION_IDS = ["home", "work", "about", "skills"];
@@ -16,6 +17,7 @@ export default function Nav() {
   const { pathname } = useLocation();
   const onHome = pathname === "/";
   const [active, setActive] = useState("home");
+  const handleAnchorClick = useAnchorScroll();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,7 +39,7 @@ export default function Nav() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-bg border-b-2 border-stroke">
       <div className="max-w-[1100px] mx-auto px-6 md:px-10 py-5 flex flex-wrap items-center justify-between gap-y-3">
         {onHome ? (
-          <a href="#home" className="font-display text-3xl tracking-wide">
+          <a href="#home" onClick={(e) => handleAnchorClick(e, "home")} className="font-display text-3xl tracking-wide">
             {site.name}
           </a>
         ) : (
@@ -52,7 +54,7 @@ export default function Nav() {
                 onHome && active === link.id ? "font-bold underline underline-offset-4" : "text-muted hover:text-text-primary"
               }`;
               return onHome ? (
-                <a key={link.href} href={link.href} className={className}>
+                <a key={link.href} href={link.href} onClick={(e) => handleAnchorClick(e, link.id)} className={className}>
                   {link.label}
                 </a>
               ) : (
