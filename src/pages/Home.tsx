@@ -26,7 +26,7 @@ export default function Home() {
       <img
         src={kunikaIllustration}
         alt={site.name}
-        className="w-56 h-56 md:w-72 md:h-72 justify-self-center object-contain"
+        className="w-72 h-72 md:w-[26rem] md:h-[26rem] justify-self-center object-contain"
       />
     </div>
   );

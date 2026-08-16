@@ -1,23 +1,25 @@
 import { useEffect, useRef, useState } from "react";
-import turtleImg from "../assets/turtle-icon.png";
+import turtleImg from "../assets/turtle-walk.png";
 
 const PATH_D = "M50 0 C 50 90, 78 90, 78 180 C 78 270, 22 270, 22 360 C 22 450, 78 450, 78 540 C 78 630, 22 630, 22 720";
 
 function TurtleIcon({ tucked }: { tucked: boolean }) {
   return (
-    <image
-      href={turtleImg}
-      x="-21"
-      y="-22"
-      width="42"
-      height="44"
-      preserveAspectRatio="xMidYMid meet"
-      style={{
-        transform: tucked ? "scale(0.85, 0.92)" : "scale(1, 1)",
-        transformOrigin: "center",
-        transition: "transform 0.25s ease",
-      }}
-    />
+    <g className="turtle-waddle">
+      <image
+        href={turtleImg}
+        x="-25"
+        y="-13"
+        width="50"
+        height="26"
+        preserveAspectRatio="xMidYMid meet"
+        style={{
+          transform: tucked ? "scale(0.85, 0.9)" : "scale(1, 1)",
+          transformOrigin: "center",
+          transition: "transform 0.25s ease",
+        }}
+      />
+    </g>
   );
 }
 
