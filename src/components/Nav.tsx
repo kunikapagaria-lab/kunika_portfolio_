@@ -52,7 +52,7 @@ export default function Nav() {
           {site.name}
         </a>
         <div className="flex flex-wrap items-center gap-8 md:gap-10">
-          <nav className="flex gap-8 md:gap-10">
+          <nav className="flex gap-10 md:gap-14">
             {LINKS.map((link) => (
               <a
                 key={link.href}
