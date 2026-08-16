@@ -23,17 +23,17 @@ export default function MainPage() {
           <Work />
         </Reveal>
       </section>
-      <section id="about" className="border-t-2 border-stroke">
+      <section id="about">
         <Reveal>
           <About />
         </Reveal>
       </section>
-      <section id="skills" className="border-t-2 border-stroke">
+      <section id="skills">
         <Reveal>
           <Skills />
         </Reveal>
       </section>
-      <section id="bonus" className="border-t-2 border-stroke">
+      <section id="bonus">
         <Reveal>
           <Bonus />
         </Reveal>
