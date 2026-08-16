@@ -1,7 +1,7 @@
 export const site = {
   name: "Kunika Pagaria",
   initials: "KP",
-  roles: ["Product Designer", "AI-Assisted Developer"],
+  roles: ["Software Engineer"],
   tagline: "To write is to carve a constellation onto paper. To code is to make it shine.",
   shortBio:
     "Kolkata-based, fresh out of engineering school, and currently freelancing on AI-assisted product work — I like building things end-to-end, from the first sketch to the deployed link.",

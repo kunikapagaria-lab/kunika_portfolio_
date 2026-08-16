@@ -3,17 +3,14 @@ import kunikaIllustration from "../assets/kunika-colour-pixel.png";
 
 export default function Home() {
   const { site } = usePortfolioData();
-  const firstName = site.name.split(" ")[0];
 
   return (
     <div className="max-w-[1100px] mx-auto px-6 md:px-10 py-16 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       <div>
         <span className="panel-label mb-6">01 — Home</span>
-        <h1 className="font-display text-5xl md:text-6xl leading-tight mt-6 mb-4">i'm {firstName}--</h1>
-        <p className="text-sm md:text-base leading-relaxed mb-4 max-w-md">
-          a {site.roles.join(" and ").toLowerCase()}. {site.tagline}
-        </p>
-        <p className="text-sm md:text-base text-muted leading-relaxed mb-6 max-w-md">{site.shortBio}</p>
+        <h1 className="font-display text-5xl md:text-6xl leading-tight mt-6 mb-2">{site.name}</h1>
+        <p className="font-body text-base md:text-lg text-muted mb-4">{site.roles.join(" · ")}</p>
+        <p className="text-sm md:text-base leading-relaxed mb-6 max-w-md">{site.shortBio}</p>
         <div className="flex flex-wrap gap-4">
           <a href="#work" className="tag-bar bg-accent">
             see my work →
