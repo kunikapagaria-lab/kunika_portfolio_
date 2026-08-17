@@ -37,7 +37,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
             >
               →
             </button>
-            <span className="absolute bottom-2 right-2 tag-bar bg-[#111]">
+            <span className="absolute bottom-2 right-2 tag-bar bg-ink">
               {index + 1} / {images.length}
             </span>
           </>
@@ -50,7 +50,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
               key={i}
               onClick={() => setIndex(i)}
               aria-label={`Go to image ${i + 1}`}
-              className={`w-2.5 h-2.5 border border-stroke ${i === index ? "bg-[#111]" : "bg-bg"}`}
+              className={`w-2.5 h-2.5 border border-stroke ${i === index ? "bg-ink" : "bg-bg"}`}
             />
           ))}
         </div>

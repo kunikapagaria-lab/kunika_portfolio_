@@ -34,6 +34,15 @@
       content="https://cdn.sanity.io/images/ucw7oipb/production/dd0e32dde36c9a8c0ba05f3d7f3e888441d75617-960x1280.jpg?w=1200&h=630&fit=crop&auto=format"
     />
 
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          if (stored === "dark") document.documentElement.setAttribute("data-theme", "dark");
+        } catch (e) {}
+      })();
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

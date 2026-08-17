@@ -27,7 +27,7 @@ function ProjectCard({ project, shot }: { project: Project; shot: number }) {
       </Link>
       <div className="p-4">
         <div className="flex items-center gap-2 mb-2.5">
-          <span className="tag-bar bg-[#111] text-[0.65rem]">SHOT {String(shot).padStart(2, "0")}</span>
+          <span className="tag-bar bg-ink text-[0.65rem]">SHOT {String(shot).padStart(2, "0")}</span>
           {project.year && (
             <span className={`tag-bar text-[0.65rem] ${TAG_COLORS[shot % TAG_COLORS.length]}`}>{project.year}</span>
           )}

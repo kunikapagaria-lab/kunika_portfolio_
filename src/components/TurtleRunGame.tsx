@@ -75,9 +75,11 @@ export default function TurtleRunGame() {
     ctx.scale(dpr, dpr);
     ctx.imageSmoothingEnabled = false;
 
+    const ink = `hsl(${getComputedStyle(document.documentElement).getPropertyValue("--ink")})`;
+
     const drawTurtle = (y: number, running: boolean) => {
       const baseY = GROUND_Y - TURTLE_H - y;
-      ctx.fillStyle = "#111";
+      ctx.fillStyle = ink;
       ctx.fillRect(TURTLE_X, baseY + 6, TURTLE_W, TURTLE_H - 10);
       ctx.fillRect(TURTLE_X + 4, baseY, TURTLE_W - 10, 10);
       ctx.fillRect(TURTLE_X + TURTLE_W - 4, baseY + 4, 8, 8);
@@ -87,14 +89,14 @@ export default function TurtleRunGame() {
     };
 
     const drawObstacle = (o: Obstacle) => {
-      ctx.fillStyle = "#111";
+      ctx.fillStyle = ink;
       ctx.fillRect(o.x, GROUND_Y - o.height, o.width, o.height);
     };
 
     const tick = () => {
       ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
-      ctx.strokeStyle = "#111";
+      ctx.strokeStyle = ink;
       ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(0, GROUND_Y);
@@ -140,7 +142,7 @@ export default function TurtleRunGame() {
       obstacles.current.forEach(drawObstacle);
       drawTurtle(turtleY.current, stateRef.current === "playing");
 
-      ctx.fillStyle = "#111";
+      ctx.fillStyle = ink;
       ctx.font = "16px 'Space Mono', monospace";
       ctx.textAlign = "right";
       ctx.fillText(String(Math.floor(distance.current)).padStart(5, "0"), WIDTH - 10, 24);

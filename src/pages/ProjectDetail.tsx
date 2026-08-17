@@ -46,7 +46,7 @@ export default function ProjectDetail() {
         <ImageCarousel images={project.images} alt={project.title} />
 
         <div className="flex items-center gap-2 mb-4">
-          {project.year && <span className="tag-bar bg-[#111]">{project.year}</span>}
+          {project.year && <span className="tag-bar bg-ink">{project.year}</span>}
           <span className="panel-label">{project.category === "personal" ? "personal project" : "client work"}</span>
         </div>
 
@@ -93,7 +93,7 @@ export default function ProjectDetail() {
                 href={project.siteUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="tag-bar bg-[#111] text-base px-4 py-2"
+                className="tag-bar bg-ink text-base px-4 py-2"
               >
                 visit site →
               </a>

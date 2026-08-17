@@ -9,6 +9,17 @@
   --muted: 0 0% 40%;
   --stroke: 0 0% 8%;
   --accent: 217 80% 52%;
+  --ink: 0 0% 8%;
+}
+
+[data-theme="dark"] {
+  --bg: 20 8% 8%;
+  --surface: 20 8% 13%;
+  --text: 35 30% 90%;
+  --muted: 35 10% 58%;
+  --stroke: 35 20% 72%;
+  --accent: 20 70% 60%;
+  --ink: 20 55% 32%;
 }
 
 * {
@@ -105,7 +116,7 @@ img {
   display: flex;
   justify-content: space-evenly;
   padding: 6px 10px;
-  background: #111;
+  background: hsl(var(--ink));
 }
 
 .sprocket-hole {
@@ -123,7 +134,7 @@ img {
   z-index: 30;
   pointer-events: none;
   opacity: 0.05;
-  background-image: radial-gradient(#000 1px, transparent 1px);
+  background-image: radial-gradient(hsl(var(--ink)) 1px, transparent 1px);
   background-size: 3px 3px;
 }
 

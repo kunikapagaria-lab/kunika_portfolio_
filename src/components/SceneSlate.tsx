@@ -28,11 +28,12 @@ export default function SceneSlate() {
   }, []);
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 border-2 border-stroke bg-bg shadow-[4px_4px_0_#111]">
+    <div className="fixed bottom-6 right-6 z-40 border-2 border-stroke bg-bg shadow-[4px_4px_0_hsl(var(--ink))]">
       <div
         className="h-2"
         style={{
-          background: "repeating-linear-gradient(-45deg, #111 0, #111 6px, #fff 6px, #fff 12px)",
+          background:
+            "repeating-linear-gradient(-45deg, hsl(var(--ink)) 0, hsl(var(--ink)) 6px, hsl(var(--bg)) 6px, hsl(var(--bg)) 12px)",
         }}
       />
       <p className="font-body text-xs font-bold tracking-widest px-3 py-2">SCENE {SCENES[active]}</p>

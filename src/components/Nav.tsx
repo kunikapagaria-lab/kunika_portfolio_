@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { usePortfolioData } from "../context/PortfolioDataContext";
 import { useAnchorScroll } from "../lib/useAnchorScroll";
 import SayHiModal from "./SayHiModal";
+import ThemeToggle from "./ThemeToggle";
 
 const SECTION_IDS = ["home", "work", "about", "skills"];
 const LINKS = [
@@ -75,6 +76,7 @@ export default function Nav() {
               cv ↓
             </a>
             <SayHiModal buttonClassName="tag-bar tag-bar-outline text-xs px-3 py-1.5" label="write me →" />
+            <ThemeToggle className="ml-3" />
           </div>
         </div>
       </div>

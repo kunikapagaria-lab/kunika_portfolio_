@@ -122,7 +122,7 @@ export default function SayHiModal({
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="tag-bar bg-[#111] w-full py-3 text-sm disabled:opacity-50"
+                  className="tag-bar bg-ink w-full py-3 text-sm disabled:opacity-50"
                 >
                   {status === "sending" ? "sending…" : "send →"}
                 </button>

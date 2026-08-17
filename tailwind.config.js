@@ -10,6 +10,7 @@ export default {
         muted: "hsl(var(--muted))",
         stroke: "hsl(var(--stroke))",
         accent: "hsl(var(--accent))",
+        ink: "hsl(var(--ink))",
       },
       fontFamily: {
         body: ["Space Mono", "monospace"],
